@@ -4,17 +4,18 @@ const name = localStorage.getItem('username');
 console.log(name);
 document.getElementById("loginUser").innerHTML = `Chào mừng <span class="username">${name}</span>, hãy lập To-do list ngày hôm nay nhé!`;
 // Tạo và thêm nút đóng cho một mục danh sách
-// function addCloseButton(li) {
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("\u00D7"); // u00D7 : Dấu x
-//   span.className = "close";
-//   span.appendChild(txt);
-//   li.appendChild(span);
-//   span.onclick = function() {
-//       var div = this.parentElement;
-//       div.remove(); 
-//   }
-// }
+function addCloseButton(li) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7"); // u00D7 : Dấu x
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+  span.onclick = function() {
+      var div = this.parentElement;
+      div.remove(); 
+  }
+}
+
 function addCloseButton(li, taskId) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -72,37 +73,37 @@ function newElement() {
   document.getElementById("myUL").appendChild(li);
   addCloseButton(li);
   
-// // Gửi nhiệm vụ mới lên server để lưu vào MongoDB
-//   fetch('http://localhost:5000/api/todo/add', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json'},
-//       body: JSON.stringify({ userId: userId, task: inputValue, completed: status }) 
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//       console.log(data.message); 
-//   })
-//   .catch(error => {
-//       console.error('Lỗi khi thêm nhiệm vụ:', error);
-//   });
-//   input.value = "";
-}
-function newA() {
 // Gửi nhiệm vụ mới lên server để lưu vào MongoDB
-fetch('http://localhost:5000/api/todo/add', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json'},
-  body: JSON.stringify({ userId: userId, task: inputValue, completed: status }) 
-})
-.then(response => response.json())
-.then(data => {
-  console.log(data.message); 
-})
-.catch(error => {
-  console.error('Lỗi khi thêm nhiệm vụ:', error);
-});
-input.value = "";
+  fetch('https://thao225.github.io/ToSoList_NhapGitHub/api/todo/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ userId: userId, task: inputValue, completed: status }) 
+  })
+  .then(response => response.json())
+  .then(data => {
+      console.log(data.message); 
+  })
+  .catch(error => {
+      console.error('Lỗi khi thêm nhiệm vụ:', error);
+  });
+  input.value = "";
 }
+// function newA() {
+// Gửi nhiệm vụ mới lên server để lưu vào MongoDB
+// fetch('http://localhost:5000/api/todo/add', {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json'},
+//   body: JSON.stringify({ userId: userId, task: inputValue, completed: status }) 
+// })
+// .then(response => response.json())
+// .then(data => {
+//   console.log(data.message); 
+// })
+// .catch(error => {
+//   console.error('Lỗi khi thêm nhiệm vụ:', error);
+// });
+// input.value = "";
+// }
 // Xử lí "Add"
 document.getElementById("addButton").addEventListener("click", newElement);
 // Xử lí "Enter" từ bàn phím
@@ -112,7 +113,7 @@ document.getElementById("myInput").addEventListener("keypress", function(event) 
   }
 });
 // Xử lí trạng thái nhiệm vụ
-document.getElementsByTagNameNS('http://localhost:5000/index.html','LI').addEventListener("click", newA());
+// document.getElementsByTagNameNS('http://localhost:5000/index.html','LI').addEventListener("click", newA());
 
 // Lấy danh sách nhiệm vụ từ server
 async function loadTasks() {
@@ -123,7 +124,7 @@ async function loadTasks() {
     }
     console.log('Đang gửi yêu cầu API để tải nhiệm vụ...');  // Kiểm tra 
     try {
-        const response = await fetch(`http://localhost:5000/api/todo/list/${userId}`);
+        const response = await fetch(`https://thao225.github.io/ToSoList_NhapGitHub/api/todo/list/${userId}`);
         if (!response.ok) {
           throw new Error('Không thể tải nhiệm vụ');
         }

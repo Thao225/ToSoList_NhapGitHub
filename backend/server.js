@@ -52,7 +52,7 @@ app.use('/api/todo', todoRoutes);
 // Thiết lập server lắng nghe tại cổng 5000
 const PORT = 5000;
 app.listen(PORT, () => {
-   console.log(`Server đang chạy tại http://localhost:${PORT}`);
+   console.log(`Server đang chạy tại https://thao225.github.io/ToSoList_NhapGitHub/`);
 });
 
 
