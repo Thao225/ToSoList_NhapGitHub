@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Kết nối MongoDB
-mongoose.connect('https://7e4e-14-169-44-158.ngrok-free.app/demo', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('https://localhost:27017/demo', { useNewUrlParser: true, useUnifiedTopology: true })
    .then(() => console.log("Kết nối MongoDB thành công!"))
    .catch(err => console.error("Không thể kết nối MongoDB:", err));
 
@@ -52,7 +52,7 @@ app.use('/api/todo', todoRoutes);
 // Thiết lập server lắng nghe tại cổng 5000
 const PORT = 5000;
 app.listen(PORT, () => {
-   console.log(`Server đang chạy tại https://thao225.github.io/ToSoList_NhapGitHub/`);
+   console.log(`Server đang chạy tại:${PORT}`);
 });
 
 
