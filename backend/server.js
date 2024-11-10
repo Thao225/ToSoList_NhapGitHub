@@ -43,11 +43,11 @@ app.get('/', (req, res) => {
 
 //Kết nối auth.js với server.js để sử dụng các routes đăng kí và đăng nhập
 const authRoutes = require('./auth');
-app.use('/api/auth', authRoutes);
+app.use('/backend/auth.js', authRoutes);
 
 //Kết nối todo.js với server.js để sử dụng các routes tương tác nhiệm vụ
 const todoRoutes = require('./todo');
-app.use('/api/todo', todoRoutes);
+app.use('/backend/todo.js', todoRoutes);
 
 // Thiết lập server lắng nghe tại cổng 5000
 const PORT = 80;
