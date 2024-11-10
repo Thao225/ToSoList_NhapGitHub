@@ -7,7 +7,7 @@ registerForm.addEventListener('submit', async (event) => {
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-pasword').value;
     try {
-        const response = await fetch('https://thao225.github.io/ToSoList_NhapGitHub/api/auth/register', {
+        const response = await fetch('https://thao225.github.io/ToSoList_NhapGitHub/backend/auth.js/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
@@ -34,7 +34,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('login-password').value;
 
     try {
-        const response = await fetch('https://thao225.github.io/ToSoList_NhapGitHub/api/auth/login', {
+        const response = await fetch('https://thao225.github.io/ToSoList_NhapGitHub/backend/auth.js/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
