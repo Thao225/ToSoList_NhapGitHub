@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Kết nối MongoDB
-mongoose.connect('mongodb://192.168.77.1:27017/demo', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('https://7e4e-14-169-44-158.ngrok-free.app/demo', { useNewUrlParser: true, useUnifiedTopology: true })
    .then(() => console.log("Kết nối MongoDB thành công!"))
    .catch(err => console.error("Không thể kết nối MongoDB:", err));
 
