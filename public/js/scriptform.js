@@ -34,7 +34,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('login-password').value;
 
     try {
-        const response = await fetch('https://thao225.github.io/ToSoList_NhapGitHub/backend/server.js/api/auth/login', {
+        const response = await fetch('mongodb://localhost:5000/api/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
