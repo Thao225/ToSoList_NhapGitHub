@@ -74,7 +74,7 @@ function newElement() {
   addCloseButton(li);
   
 // Gửi nhiệm vụ mới lên server để lưu vào MongoDB
-  fetch('http://localhost:5000/api/todo/add', {
+  fetch('https://thao225.github.io/ToSoList_NhapGitHub/api/todo/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ userId: userId, task: inputValue, completed: status }) 
@@ -124,7 +124,7 @@ async function loadTasks() {
     }
     console.log('Đang gửi yêu cầu API để tải nhiệm vụ...');  // Kiểm tra 
     try {
-        const response = await fetch(`http://localhost:5000/api/todo/list/${userId}`);
+        const response = await fetch(`https://thao225.github.io/ToSoList_NhapGitHub/api/todo/list/${userId}`);
         if (!response.ok) {
           throw new Error('Không thể tải nhiệm vụ');
         }
